@@ -1,0 +1,2 @@
+class Disapproval < ApplicationRecord
+end
