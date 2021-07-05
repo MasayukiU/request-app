@@ -1,0 +1,49 @@
+<%= form_with(model:@item, local: true) do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
+  <form>
+    <div class="form-item">
+      <label for="name"></label>
+      <label class="form-text">商品名</label><span class="indispensable">定期購入を入力しない場合必須</span>
+    <%= f.text_field :name, id:"name", placeholder:"例) 特殊ハサミ", maxlength:"40" %>
+    </div>
+		<div class="form-item">
+      <label class="form-text">定期購入</label>
+      <label for="regular_id"></label>
+    <%= f.collection_select(:regular_id, Regular.all, :id, :name, {}, {class:"select-box"}) %>
+    </div>
+    <div class="form-item">
+      <label for="quantity"></label>
+      <label class="form-text">数量</label><span class="indispensable">必須</span>
+    <%= f.text_field :quantity, id:"quantity", placeholder:"例) 10", maxlength:"40" %>
+    </div>
+		 <div class="form-item">
+      <label for="price"></label>
+      <label class="form-text">金額</label><span class="indispensable">必須</span>
+    <%= f.text_field :price, id:"price", placeholder:"例) 3000", maxlength:"40" %>
+    </div>
+		 <div class="form-item">
+      <label for="total_price"></label>
+      <label class="form-text">合計金額</label>
+    <%= f.text_field :total_price, id:"total_price", placeholder:"例) 30000", maxlength:"40" %>
+    </div>
+		 <div class="form-item">
+      <label for="description"></label>
+      <label class="form-text">詳細説明</label>
+    <%= f.text_area :description, id:"description", class: "form_description", placeholder:"例) 接待後に終電を逃したため", maxlength:"200" %>
+    </div>
+		<div class="form-item">
+      <label for="image"></label>
+      <label class="form-text">参考写真</label>
+    <%= f.file_field :image, id:"image" %>
+    </div>
+
+
+    <div class="button-panel">
+      <%= f.submit "経費申請" ,class:"button" %>
+    </div>
+  </form>
+	  <div class="form-footer">
+  </div>
+ </div> 
+<% end %>
+

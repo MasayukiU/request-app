@@ -1,0 +1,35 @@
+<!-- Header -->
+<div id="header-wrapper">
+	<header id="header" class="container">
+
+		<!-- Logo -->
+			<div id="logo">
+				<h1><%=link_to 'Request-app', root_path, class:"index.html" %></h1>
+				<% if user_signed_in? %>
+
+						<!-- shinsei -->
+			<div id="logo-shinsei">
+				<%=link_to ' > ここから申請', new_item_path, class: "btn-gradient-simple" %></a>
+			</div>
+
+		<!-- Nav -->
+
+		<nav id="nav">
+				<ul>
+					<li><%= link_to current_user.name, edit_user_path(current_user)%></li>
+					<li><%= link_to "承認一覧", "/items/:item_id/approvals" %></li>
+					<li><%= link_to "非承認一覧", "/items/:item_id/disapprovals" %></li>
+							<%#= link_to 'ルーム作成', new_room_path %>
+							<li><%= link_to '交渉ルーム', rooms_path %></li>
+					<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+				</ul>
+		</nav>
+		<% else %>
+		<nav id="nav">
+			<ul>
+					<li><%= link_to '新規登録', new_user_registration_path %></li>
+					<li><%= link_to 'ログイン', new_user_session_path %></li>
+			</ul>
+		</nav>
+		<% end %>
+		</div>
