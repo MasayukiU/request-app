@@ -1,3 +1,140 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Nav */
+
+#nav {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 17px;
+}
+
+	#nav ul {
+		list-style: none;
+		padding-left: 0;
+	}
+
+		#nav ul li {
+			float: left;
+			line-height: 4.5em;
+		}
+
+			#nav ul li a, #nav ul li span {
+				-moz-transition: background-color .25s ease-in-out;
+				-webkit-transition: background-color .25s ease-in-out;
+				-ms-transition: background-color .25s ease-in-out;
+				transition: background-color .25s ease-in-out;
+				font-weight: 800;
+				letter-spacing: 0.025em;
+				color: #696969;
+				border-radius: 6px;
+				padding: 0.5em 1em 0.5em 1em;
+	
+			}
+
+			#nav ul li > ul {
+				display: none;
+			}
+
+			#nav ul li:hover a, #nav ul li:hover span {
+				background: #fff;
+			}
+
+			#nav ul li.active a, #nav ul li.active span {
+				background: #fff;
+			}
+
+			#nav ul li.current a {
+				background: #444;
+				color: #fff;
+			}
+
+			.btn-gradient-simple {
+				display: inline-block;
+				padding: 0.8em 1.5em;
+				text-decoration: none;
+				border-radius: 3px;
+				font-weight: bold;
+				color: #FFF;
+				background-color: #5272ce;
+				transition: .4s;
+				margin-left: 20px;
+			}
+			
+			.btn-gradient-simple:hover {
+				background-color: #758edb;
+			}
+
+			input#description {
+				height: 100px;
+				margin-bottom: 20px;
+		}
+
+.dropotron {
+	background: #fff;
+	letter-spacing: 0.025em;
+	color: #696969;
+	text-decoration: none;
+	border-radius: 6px;
+	padding: 0.75em 0;
+	min-width: 15em;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0.25em 0.25em 0.1em rgba(0, 0, 0, 0.025);
+	margin-top: calc(-0.75em + 1px);
+	margin-left: -1px;
+	list-style: none;
+	padding-left: 0;
+}
+
+	.dropotron li {
+		border-top: solid 1px #eee;
+		line-height: 3em;
+		padding-left: 0;
+	}
+
+		.dropotron li:first-child {
+			border-top: 0;
+		}
+
+		.dropotron li > a, .dropotron li > span {
+			-moz-transition: color .25s ease-in-out, background-color .25s ease-in-out;
+			-webkit-transition: color .25s ease-in-out, background-color .25s ease-in-out;
+			-ms-transition: color .25s ease-in-out, background-color .25s ease-in-out;
+			transition: color .25s ease-in-out, background-color .25s ease-in-out;
+
+			color: inherit;
+			display: block;
+			padding: 0 1.5em;
+		}
+
+			.dropotron li > a:hover, .dropotron li > span:hover {
+				background: #eee;
+			}
+
+		.dropotron li.active > a, .dropotron li.active > span {
+			background: #eee;
+		}
+
+	.dropotron.level-0 {
+		font-size: 0.8em;
+		margin-left: 1.5em;
+		margin-top: 0;
+	}
+
+		.dropotron.level-0:before {
+			content: '';
+			position: absolute;
+			top: -0.5em;
+			left: 1em;
+			border-bottom: solid 0.75em #ffffff;
+			border-left: solid 0.75em transparent;
+			border-right: solid 0.75em transparent;
+			z-index: 1;
+		}
+
+		.wrapper.style1 {
+			background-color: #fff;
+			padding: 30px;
+			border-radius: 2%;
+	}

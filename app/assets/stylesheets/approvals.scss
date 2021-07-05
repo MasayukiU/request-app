@@ -1,3 +1,15 @@
 // Place all the styles related to the approvals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-square2 {
+	position: relative;
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	color: #FFF;
+	background: #ad2c2c;
+	border-radius: 4px;
+	font-weight: bold;
+	margin-left: 15px;
+}
