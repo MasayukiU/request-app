@@ -18,8 +18,7 @@
 - has_many :messages
 - has_many :items
 - has_many :approvals
-- has_many :hold
-- has_many :Non-approval
+- has_many :disapproval
 
 ## items テーブル
 
@@ -38,8 +37,7 @@
 - has_many :messages
 - belongs_to :user
 - has_many :approvals
-- has_many :hold
-- has_many :Non-approval
+- has_many :disapproval
 
 ## rooms テーブル
 
@@ -78,7 +76,7 @@
 - belongs_to :room
 - belongs_to :user
 
-## approvals_histories テーブル
+## approvals テーブル
 
 | Column                    | Type             | Options                         |
 | ------------------------- | ---------------- | ------------------------------- |
@@ -89,18 +87,7 @@
 - belongs_to :user
 - belongs_to :item
 
-## hold テーブル
-
-| Column                    | Type           | Options                         |
-| ------------------------- | -------------- | ------------------------------- |
-| user                      | references     | null: false,foreign_key: true   |
-| item                      | references     | null: false,foreign_key: true   |
-
-### Association
-- belongs_to :user
-- belongs_to :item
-
-## disapproval_histories テーブル
+## disapprovals テーブル
 
 | Column                    | Type           | Options                         |
 | ------------------------- | -------------- | ------------------------------- |
