@@ -1,0 +1,71 @@
+<!-- Main -->
+<div class="wrapper style1">
+	<div class="container">
+		<div id="content">
+			<!-- Content -->
+		 <p id="notice"></p>
+			<h1>申請中一覧</h1>
+			<table>
+			<thead>
+				<tr>
+					<%# <th>申請時間</th> %>
+					<th>申請時間</th>
+					<th>申請者</th>
+					<th>商品名</th>
+					<th>商品名(定期)</th>
+					<th>数量</th>
+					<th>金額</th>
+					<th>合計金額</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<%# <th colspan="2"></th> %>
+				</tr>
+			</thead>
+				<tbody>
+			<% @items.each do |item| %>
+
+					<tr>
+					<% if item.approvals.empty? && item.disapprovals.empty? %>
+						<td><%= l item.created_at, format: :short %></td>
+						<td><%= item.user.name %></td>
+						<td><%= item.name %></td>
+						<td><%= item.regular.name %></td>
+						<td><%= item.quantity %></td>
+						<td><%= item.price %>円</td>
+						<td><%= item.total_price %>円</td>
+            <% if current_user.id == item.user_id %>
+
+							<th></th>
+									<th><%= link_to '編集', edit_item_path(item), class:"btn-square-pop", method: :get %></th>
+									<th><%= link_to '取消', item_path(item.id), class:"btn-square-pop", method: :delete, data: { confirm: '本当に取消してもよろしいですか？' } %></th>
+						<% else %>
+
+							<% if current_user.position_id != 1 %>
+									<th><%= link_to '詳細', item_path(item), class:"btn-square-pop" %></th>
+
+								<th>
+									<%= form_with model: @items, url: item_approvals_path(item), local: true do |f| %>
+									<%= f.submit "承認", class: "btn-square-pop1" %>
+									<% end %>
+								</th>
+
+								<th>
+									<%= form_with model: @items, url: item_disapprovals_path(item), local: true do |f| %>
+										<%= f.submit "却下", class:"btn-square-pop2" %>
+									<% end %>
+								</th>
+
+							<% end %>
+						<% end %>
+					<% end %>
+					</tr>
+						
+			<% end %>
+			</div>
+			</tbody>
+			</table>
+				<br>
+		</div>
+	</div>
+</div>

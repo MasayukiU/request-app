@@ -1,0 +1,68 @@
+<%= render "shared/header"%>
+
+<div class="form-wrapper">
+  <div class="form-wrapper_h1">
+  <h1>詳細確認</h1>
+  </div>
+
+  <form>
+    <div class="form-item">
+      <label for="name"></label>
+      <label class="form-text">申請時間</label>
+			<br><%= l @item.created_at, format: :short %>
+    </div>
+    <div class="form-item">
+      <label for="name"></label>
+      <label class="form-text">商品名</label>
+			<br><%= @item.name %>
+    </div>
+		<div class="form-item">
+      <label class="form-text">定期購入</label>
+      <label for="regular_id"></label>
+			<br><%= @item.regular.name %>
+    </div>
+    <div class="form-item">
+      <label for="quantity"></label>
+      <label class="form-text">数量</label>
+			<br><%= @item.quantity %>
+    </div>
+		 <div class="form-item">
+      <label for="price"></label>
+      <label class="form-text">金額</label>
+			<br><%= @item.price %>円
+    </div>
+		
+		 <div class="form-item">
+      <label for="total_price"></label>
+      <label class="form-text">合計金額</label>
+			<br><%= @item.total_price %>円
+    </div>
+
+		 <div class="form-item">
+      <label for="total_price"></label>
+      <label class="form-text">使用経緯</label>
+			<br><%= @item.description %>
+     </div>
+
+      <div class="form-item">
+      <label for="image"></label>
+      <label class="form-text">参考写真</label>
+      <br><%= image_tag @item.image.variant(resize: '500x500') if @item.image.attached? %>
+      </div>
+	</form>
+
+			<%= form_with model: @items, url: item_approvals_path(@item.id), local: true do |f| %>
+				<%= f.submit "承認", class: "button-panel1" %>
+			<% end %>
+
+			<%= form_with model: @items, url: item_disapprovals_path(@item.id), local: true do |f| %>
+      <div class="button-panel2">
+				<%= f.submit "非承認", class: "button-panel2" %>
+      </div>
+			<% end %>
+
+	  <div class="form-footer">
+  </div>
+ </div> 
+
+ <%= render "shared/footer" %>

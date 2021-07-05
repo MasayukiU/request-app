@@ -1,0 +1,54 @@
+<%= render "shared/header"%>
+
+<!-- Main -->
+<div class="wrapper style1">
+	<div class="container">
+		<div id="content">
+			<!-- Content -->
+		<%#if notice %>
+		 <p id="notice"><%#= notice %></p>
+		<%# end %>
+			<h1>承認済み一覧</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>申請時間</th>
+						<th>申請者</th>
+						<th>商品名</th>
+						<th>商品名(定期)</th>
+						<th>数量</th>
+						<th>金額</th>
+						<th>合計金額</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<%# <th colspan="3"></th> %>
+					</tr>
+				</thead>	
+				<% @approval.each do |approval| %>
+				<tbody>
+					<tr>
+						<td><%= l approval.created_at, format: :short %></td>
+						<td><%= approval.item.user.name %></td>
+						<td><%= approval.item.name %></td>
+						<td><%= approval.item.regular.name %></td>
+						<td><%= approval.item.quantity %></td>
+						<td><%= approval.item.price %>円</td>
+						<td><%= approval.item.total_price %>円</td>
+						<td></td>
+						<td></td>
+					<td class="btn-square-pop"><%= link_to '詳細', approval_path(approval) %></td>
+					<% if current_user.position_id != 1 %>
+					<td class="btn-square2"><%= link_to '取消', approval_path(approval.id), method: :delete,  data: { confirm: '本当に取消してもよろしいですか？' } %></td>
+					<% end %>
+					</tr>
+			 <% end %>
+			</table>
+			</div>
+				<br>
+		</div>
+	</div>
+</div>
+
+ <%= render "shared/footer" %>
+ 

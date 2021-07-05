@@ -1,0 +1,58 @@
+<%= render "shared/header"%>
+
+<div class="form-wrapper">
+  <div class="form-wrapper_h1">
+  <h1>詳細確認</h1>
+  </div>
+
+  <form>
+    <div class="form-item">
+      <label for="name"></label>
+      <label class="form-text">申請時間</label>
+			<br><%#= l @disapproval.created_at, format: :short %>
+    </div>
+    <div class="form-item">
+      <label for="name"></label>
+      <label class="form-text">商品名</label>
+			<br><%= @disapproval.item.name %>
+    </div>
+		<div class="form-item">
+      <label class="form-text">定期購入</label>
+      <label for="regular_id"></label>
+			<br><%= @disapproval.item.regular.name %>
+    </div>
+    <div class="form-item">
+      <label for="quantity"></label>
+      <label class="form-text">数量</label>
+			<br><%= @disapproval.item.quantity %>
+    </div>
+		 <div class="form-item">
+      <label for="price"></label>
+      <label class="form-text">金額</label>
+			<br><%= @disapproval.item.price %>円
+    </div>
+		
+		 <div class="form-item">
+      <label for="total_price"></label>
+      <label class="form-text">合計金額</label>
+			<br><%= @disapproval.item.total_price %>円
+    </div>
+
+		 <div class="form-item">
+      <label for="total_price"></label>
+      <label class="form-text">使用経緯</label>
+			<br><%= @disapproval.item.description %>
+     </div>
+
+      <div class="form-item">
+      <label for="image"></label>
+      <label class="form-text">参考写真</label>
+      <br><%= image_tag @disapproval.item.image.variant(resize: '500x500') if @disapproval.item.image.attached? %>
+      </div>
+	</form>
+
+	  <div class="form-footer">
+  </div>
+ </div> 
+
+ <%= render "shared/footer" %>
