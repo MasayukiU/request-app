@@ -64,3 +64,7 @@ gem 'active_hash'
 
 gem "aws-sdk-s3", require: false
 
+# ここからEC2
+group :production do
+  gem 'unicorn', '5.4.1'
+end
