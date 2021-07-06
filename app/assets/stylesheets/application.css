@@ -1507,11 +1507,12 @@ input, select, textarea {
 	form input[type="password"],
 	form select,
 	form textarea {
-		-webkit-appearance: none;
-		display: block;
-		/* width: 100%; */
-		border-radius: 8px;
-		border: solid 1px #eee;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    border: solid 1px #c7c7c7;
+    background-color: #fff;
 	}
 
 		form input[type="text"]:focus,
