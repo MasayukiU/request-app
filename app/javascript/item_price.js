@@ -25,3 +25,4 @@ window.addEventListener('load', () => {
     addTaxDom.value = Math.floor(totalPrice);
   });
 });
+
